@@ -103,15 +103,6 @@ public class ClientController {
 		
 	}
 	
-	@CrossOrigin(origins ="*")
-	@RequestMapping(value = "/expeditions", method = RequestMethod.POST)	 
-	public void expeditions(@Valid @RequestBody String exp) {
-		System.out.println(exp);
-		
-	}
-	
-	
-	
 	
 	@CrossOrigin(origins ="*")
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
