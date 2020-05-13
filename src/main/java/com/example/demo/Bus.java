@@ -29,10 +29,14 @@ public class Bus {
 	private int max_seats;
 	
 	@Column
-	private String book_code;
+	private int price;
 
 	@Column 
 	private String date;
+	
+	@Column 
+	private String time;
+	
 	
 	public int getBus_id() {
 		return bus_id;
@@ -82,13 +86,7 @@ public class Bus {
 		this.max_seats = max_seats;
 	}
 
-	public String getBook_code() {
-		return book_code;
-	}
 
-	public void setBook_code(String book_code) {
-		this.book_code = book_code;
-	}
 
 	public String getDate() {
 		return date;
@@ -96,6 +94,22 @@ public class Bus {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	
 	

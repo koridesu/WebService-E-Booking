@@ -127,17 +127,13 @@ public class ClientController {
 	
 	
 	@CrossOrigin(origins ="*")
-	@RequestMapping(value ="/silinecek/{user}",method = RequestMethod.GET)
+	@RequestMapping(value ="/return/{user}",method = RequestMethod.GET)
 	public String silinecek(@PathVariable String user) {
 		if(user != null)
 		return user;
 		else return null;
 	}
+
 	
-	@CrossOrigin(origins ="*")
-	@RequestMapping(value ="/silinecek/",method = RequestMethod.GET)
-	public String silinecek() {
-		return null;
-	}
 }
  

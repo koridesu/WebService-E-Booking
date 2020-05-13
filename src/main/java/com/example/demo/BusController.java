@@ -26,8 +26,6 @@ public class BusController {
 		public Bus bus;
 		public List<Integer> seats = new ArrayList<Integer>();
 	}
-
-	
 	
 	@RequestMapping(value = "/expeditions", method = RequestMethod.POST)		 
 	public List<responseType> expeditions(@Valid @RequestBody String exp) {
@@ -72,16 +70,16 @@ public class BusController {
 		for(int i = 0;i<searched_busses.size();i++)
 		{ 	responseType temp_response=new responseType();
 			
-			for(int index=0; index < searched_busses.get(i).getMax_seats()+1;index++)
+			for(int index=0; index < searched_busses.get(i).getMax_seats();index++)
 			{	
 				temp_response.seats.add(0);
 			}
 			
 			for(int j = 0; j<books.size();j++)
 			{
-				if(searched_busses.get(i).getBook_code().equals(books.get(j).getBook_code()))
-				{
-					temp_response.seats.set(books.get(j).getSeat(), 1);
+				if(searched_busses.get(i).getBus_id() == books.get(j).getBook_code())
+				{	
+					temp_response.seats.set(books.get(j).getSeat()-1, 1);
 				}	
 			}
 			temp_response.bus=searched_busses.get(i);
@@ -94,7 +92,21 @@ public class BusController {
 	}
 	
 	
-	
+	@RequestMapping(value = "/getBusInfo", method = RequestMethod.POST)
+	public List<Bus> getBusInfo(@Valid @RequestBody String s) {
+		s=s.substring(0,s.length()-1);	
+		List<Bus> busses = new ArrayList<>();
+		List<Bus> temp = new ArrayList<>();
+		busses=bus_service.getBusses();
+		for(int i=0; i<busses.size();i++)
+		{
+			if(Integer.parseInt(s)==busses.get(i).getBus_id())
+			{
+				temp.add(busses.get(i));
+			}
+		}
+		return temp;
+	}
 	
 	
 	

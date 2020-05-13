@@ -17,7 +17,7 @@ public class Book {
 	private int book_id;
 	
 	@Column
-	private String book_code;
+	private int book_code;
 	
 	@Column
 	private int client_id;
@@ -36,11 +36,11 @@ public class Book {
 		this.book_id = book_id;
 	}
 
-	public String getBook_code() {
+	public int getBook_code() {
 		return book_code;
 	}
 
-	public void setBook_code(String book_code) {
+	public void setBook_code(int book_code) {
 		this.book_code = book_code;
 	}
 
