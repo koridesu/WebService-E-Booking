@@ -3,7 +3,7 @@ package com.example.demo;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sound.midi.Soundbank;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +34,7 @@ public class BusController {
 		String departure;
 		String arrival;
 		String date;
-		boolean bool = false;
-		int start = 0; 
+
 		
 		exp=exp.substring(1,exp.length()-1);	
 		String[] s= exp.split(",");	
@@ -94,6 +93,7 @@ public class BusController {
 	
 	@RequestMapping(value = "/getBusInfo", method = RequestMethod.POST)
 	public List<Bus> getBusInfo(@Valid @RequestBody String s) {
+		
 		s=s.substring(0,s.length()-1);	
 		List<Bus> busses = new ArrayList<>();
 		List<Bus> temp = new ArrayList<>();
