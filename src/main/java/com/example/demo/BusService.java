@@ -30,7 +30,7 @@ public class BusService {
 	public void updateBus(Bus b) {
 		busRepository.save(b);
 	}
-	public void addBook(Bus b) {
+	public void addBus(Bus b) {
 		busRepository.save(b);
 	}
 	

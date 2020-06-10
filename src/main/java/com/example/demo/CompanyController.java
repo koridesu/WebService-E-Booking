@@ -16,6 +16,7 @@ public class CompanyController {
 
 	@Autowired
 	private CompanyService companyService;
+	private BusService busService;
 	
 	@CrossOrigin(origins ="*")
 	@RequestMapping(value = "/companylogin", method = RequestMethod.POST)	 
@@ -35,8 +36,8 @@ public class CompanyController {
 			}
 		}
 		return null;
-		
 	}
+	
 	
 	
 	

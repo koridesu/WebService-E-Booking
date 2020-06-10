@@ -108,6 +108,44 @@ public class BusController {
 		return temp;
 	}
 	
+
+	@RequestMapping(value="/addbus",method = RequestMethod.POST)
+	public void AddBus(@Valid @RequestBody Bus bus) {
+		
+		Bus b = new Bus();
+		b.setArrival("ankara");
+		b.setDeparture("bolu");
+		b.setCompany_id(2);
+		b.setCompany_name("Metro");
+		b.setDate("201020");
+		b.setTime("20:00");
+		b.setPrice(20);
+		b.setMax_seats(20);
+		b.setBus_id(40);
+		System.out.println(b.getBus_id());
+		System.out.println(b.getClass());
+		bus_service.addBus(bus);
+	}
+	
+	@RequestMapping(value="/getbusses",method = RequestMethod.POST)
+	public List<Bus> GetAllBusses(@Valid @RequestBody String id){
+		List<Bus> desiredbusses = new ArrayList<Bus>();
+		List<Bus> allbusses = bus_service.getBusses();
+		
+		id=id.substring(0,id.length()-1);
+		
+		int Id = Integer.parseInt(id);
+		System.out.println(id);
+		for(int i =0;i<allbusses.size();i++)
+		{
+			if(allbusses.get(i).getCompany_id()==Id) {
+				desiredbusses.add(allbusses.get(i));
+			
+			}
+		}
+				
+		return desiredbusses;
+	}
 	
 	
 	
