@@ -146,7 +146,14 @@ public class BusController {
 				
 		return desiredbusses;
 	}
-	
+	@RequestMapping(value="/getbus",method = RequestMethod.POST)
+	public Bus getBookById(@Valid @RequestBody String s )
+	{
+		s=s.substring(0,s.length()-1);
+		Bus b = bus_service.getBus(Integer.parseInt(s));
+		return b;
+		
+	}
 	
 	
 }

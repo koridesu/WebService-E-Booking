@@ -24,15 +24,14 @@ public class CompanyController {
 	{
 		
 		List<Company> companies = companyService.getCompany();
-		
-		
-		System.out.println(company.getCompany_id());
+		System.out.println(company.getCompany_name()+ company.getPassword());
 	
+		
 		for(int i = 0; i<companies.size();i++)
 		{
-			if(company.getCompany_name().equals(companies.get(i).getCompany_name()))
-			{
-					return companies.get(i);
+			if(company.getCompany_name().equals(companies.get(i).getCompany_name()) && company.getPassword().equals(companies.get(i).getPassword()))
+			{	
+				return companies.get(i);
 			}
 		}
 		return null;
